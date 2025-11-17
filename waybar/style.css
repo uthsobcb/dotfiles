@@ -1,0 +1,213 @@
+
+* {
+    font-family: "JetBrainsMono Nerd Font", Roboto, sans-serif;
+    font-size: 14px;
+}
+
+window#waybar {
+    background-color: rgba(5, 8, 15, 0.85);
+    border-bottom: 2px solid rgba(0, 255, 150, 0.25);
+    color: #cfd6e6;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+window#waybar.hidden {
+    opacity: 0.15;
+}
+
+/* ─────────── GENERAL BUTTON STYLE ─────────── */
+button {
+    border: none;
+    background: transparent;
+    color: inherit;
+    padding: 0 6px;
+    border-radius: 3px;
+    transition: color 0.2s ease, background 0.2s ease;
+}
+
+button:hover {
+    color: #00ffc8;
+    background-color: rgba(0, 255, 150, 0.12);
+}
+
+/* ─────────── WORKSPACES ─────────── */
+/* --- Alien HUD style --- */
+#workspaces {
+    padding: 4px 8px;
+    background-color: rgba(10, 12, 20, 0.35);
+    border-radius: 14px;
+    border: 1px solid rgba(127,255,212,0.25); /* faint alien glow outline */
+}
+
+#workspaces button {
+    padding: 4px 6px;
+    margin: 0 3px;
+    font-size: 15px;
+    color: #7fffd4; /* alien aqua */
+    transition: 200ms ease;
+}
+
+#workspaces button.empty {
+    color: rgba(127,255,212,0.35);
+}
+
+#workspaces button.active {
+    color: #aaffff;
+    background-color: rgba(0,255,255,0.10);
+    border-radius: 10px;
+    border: 1px solid rgba(0,255,255,0.35);
+}
+
+#workspaces button:hover {
+    color: #caffff;
+    background-color: rgba(0,255,255,0.12);
+    border-radius: 10px;
+}
+
+/* ─────────── MODULE SPACING ─────────── */
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray,
+#mpd,
+#idle_inhibitor,
+#mode,
+#custom-power,
+#custom-notification {
+    padding: 0 10px;
+    margin: 0 3px;
+    border-radius: 3px;
+}
+
+/* ─────────── INDIVIDUAL MODULE COLORS ─────────── */
+
+/* Clock */
+#clock {
+    background-color: rgba(0, 255, 200, 0.08);
+    color: #00ffc8;
+}
+
+/* Battery */
+#battery {
+    background-color: rgba(50, 255, 150, 0.1);
+    color: #6aff9e;
+}
+#battery.charging,
+#battery.plugged {
+    background-color: rgba(0, 255, 150, 0.2);
+    color: #00ff99;
+}
+#battery.critical:not(.charging) {
+    background-color: rgba(255, 60, 60, 0.3);
+    color: #ffffff;
+    animation: blink 0.8s steps(2) infinite alternate;
+}
+
+/* CPU */
+#cpu {
+    background-color: rgba(0, 255, 200, 0.1);
+    color: #00ffc8;
+}
+
+/* Memory */
+#memory {
+    background-color: rgba(160, 80, 255, 0.1);
+    color: #b47fff;
+}
+
+/* Temperature */
+#temperature {
+    background-color: rgba(255, 150, 0, 0.1);
+    color: #ffb84d;
+}
+#temperature.critical {
+    background-color: rgba(255, 60, 60, 0.25);
+    color: #ff6060;
+}
+
+/* Network */
+#network {
+    background-color: rgba(0, 100, 255, 0.1);
+    color: #00aaff;
+}
+#network.disconnected {
+    background-color: rgba(255, 60, 60, 0.25);
+    color: #ff6060;
+}
+
+/* Audio */
+#pulseaudio {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #00ffc8;
+}
+#pulseaudio.muted {
+    background-color: rgba(80, 80, 80, 0.2);
+    color: #777;
+}
+
+/* MPD */
+#mpd {
+    background-color: rgba(0, 255, 150, 0.08);
+    color: #00ffc8;
+}
+#mpd.disconnected {
+    background-color: rgba(255, 60, 60, 0.25);
+}
+
+/* Notification */
+#custom-notification {
+    color: #00ffc8;
+}
+#custom-notification:hover {
+    background-color: rgba(0, 255, 150, 0.1);
+}
+
+/* Power (alien icon) */
+#custom-power {
+    background-color: rgba(0, 255, 150, 0.1);
+    color: #00ffc8;
+    font-weight: bold;
+}
+#custom-power:hover {
+    background-color: rgba(0, 255, 150, 0.2);
+}
+
+/* Idle Inhibitor */
+#idle_inhibitor {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+#idle_inhibitor.activated {
+    background-color: rgba(0, 255, 150, 0.1);
+    color: #00ffc8;
+}
+
+/* Tray */
+#tray {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ─────────── ANIMATIONS ─────────── */
+@keyframes blink {
+    to {
+        background-color: rgba(255, 60, 60, 0.5);
+        color: #ffffff;
+    }
+}
+
+/* ─────────── LABEL FOCUS ─────────── */
+label:focus {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* ─────────── GROUP EXPAND MODULE ─────────── */
+#group-expand {
+    background-color: rgba(255, 255, 255, 0.03);
+    color: #00ffc8;
+}
+#group-expand:hover {
+    background-color: rgba(0, 255, 150, 0.08);
+}
