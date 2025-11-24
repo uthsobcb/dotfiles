@@ -43,10 +43,10 @@
             "format": "{2}"
         },
         {
-          "type": "packages",
-          "key": "├─󰏖 ",
-          "keyColor": "33",
-          "format": "{1} Total Packages"
+            "type": "packages",
+            "key": "├─󰏖 ",
+            "keyColor": "33",
+            "format": "{1} Total Packages"
         },
         {
             "type": "memory",

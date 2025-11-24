@@ -1,7 +1,6 @@
-
 * {
     font-family: "JetBrainsMono Nerd Font", Roboto, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
 }
 
 window#waybar {
@@ -36,31 +35,33 @@ button:hover {
     padding: 4px 8px;
     background-color: rgba(10, 12, 20, 0.35);
     border-radius: 14px;
-    border: 1px solid rgba(127,255,212,0.25); /* faint alien glow outline */
+    border: 1px solid rgba(127, 255, 212, 0.25);
+    /* faint alien glow outline */
 }
 
 #workspaces button {
     padding: 4px 6px;
     margin: 0 3px;
     font-size: 15px;
-    color: #7fffd4; /* alien aqua */
+    color: #7fffd4;
+    /* alien aqua */
     transition: 200ms ease;
 }
 
 #workspaces button.empty {
-    color: rgba(127,255,212,0.35);
+    color: rgba(127, 255, 212, 0.35);
 }
 
 #workspaces button.active {
     color: #aaffff;
-    background-color: rgba(0,255,255,0.10);
+    background-color: rgba(0, 255, 255, 0.10);
     border-radius: 10px;
-    border: 1px solid rgba(0,255,255,0.35);
+    border: 1px solid rgba(0, 255, 255, 0.35);
 }
 
 #workspaces button:hover {
     color: #caffff;
-    background-color: rgba(0,255,255,0.12);
+    background-color: rgba(0, 255, 255, 0.12);
     border-radius: 10px;
 }
 
@@ -96,11 +97,13 @@ button:hover {
     background-color: rgba(50, 255, 150, 0.1);
     color: #6aff9e;
 }
+
 #battery.charging,
 #battery.plugged {
     background-color: rgba(0, 255, 150, 0.2);
     color: #00ff99;
 }
+
 #battery.critical:not(.charging) {
     background-color: rgba(255, 60, 60, 0.3);
     color: #ffffff;
@@ -124,6 +127,7 @@ button:hover {
     background-color: rgba(255, 150, 0, 0.1);
     color: #ffb84d;
 }
+
 #temperature.critical {
     background-color: rgba(255, 60, 60, 0.25);
     color: #ff6060;
@@ -134,6 +138,7 @@ button:hover {
     background-color: rgba(0, 100, 255, 0.1);
     color: #00aaff;
 }
+
 #network.disconnected {
     background-color: rgba(255, 60, 60, 0.25);
     color: #ff6060;
@@ -144,6 +149,7 @@ button:hover {
     background-color: rgba(255, 255, 255, 0.05);
     color: #00ffc8;
 }
+
 #pulseaudio.muted {
     background-color: rgba(80, 80, 80, 0.2);
     color: #777;
@@ -154,6 +160,7 @@ button:hover {
     background-color: rgba(0, 255, 150, 0.08);
     color: #00ffc8;
 }
+
 #mpd.disconnected {
     background-color: rgba(255, 60, 60, 0.25);
 }
@@ -162,24 +169,55 @@ button:hover {
 #custom-notification {
     color: #00ffc8;
 }
+
 #custom-notification:hover {
     background-color: rgba(0, 255, 150, 0.1);
 }
 
-/* Power (alien icon) */
-#custom-power {
-    background-color: rgba(0, 255, 150, 0.1);
-    color: #00ffc8;
-    font-weight: bold;
+/* ─────────── TASKBAR (Alien HUD style) ─────────── */
+#taskbar {
+    background-color: rgba(10, 12, 20, 0.35);
+    /* same as workspaces */
+    border-radius: 14px;
+    padding: 6px 10px;
+    margin: 6px 12px;
+    border: 1px solid rgba(127, 255, 212, 0.25);
+    /* faint alien glow outline */
 }
-#custom-power:hover {
-    background-color: rgba(0, 255, 150, 0.2);
+
+/* Each window icon button */
+#taskbar button {
+    padding: 4px 6px;
+    margin: 0 3px;
+    font-size: 16px;
+    color: #7fffd4;
+    /* alien aqua */
+    background-color: rgba(0, 255, 255, 0.08);
+    /* subtle bubble */
+    border-radius: 10px;
+    transition: background 200ms ease, color 200ms ease, border 200ms ease;
+}
+
+/* Active / focused window */
+#taskbar button.active {
+    color: #aaffff;
+    background-color: rgba(0, 255, 255, 0.10);
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.35);
+}
+
+/* Hover effect */
+#taskbar button:hover {
+    color: #caffff;
+    background-color: rgba(0, 255, 255, 0.12);
+    border-radius: 10px;
 }
 
 /* Idle Inhibitor */
 #idle_inhibitor {
     background-color: rgba(255, 255, 255, 0.05);
 }
+
 #idle_inhibitor.activated {
     background-color: rgba(0, 255, 150, 0.1);
     color: #00ffc8;
@@ -208,6 +246,7 @@ label:focus {
     background-color: rgba(255, 255, 255, 0.03);
     color: #00ffc8;
 }
+
 #group-expand:hover {
     background-color: rgba(0, 255, 150, 0.08);
 }

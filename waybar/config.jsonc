@@ -2,42 +2,47 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-
-   "layer": "top",
-   "position": "top",
-   "reload_style_on_change": true,
-   "height": 30,
+    "layer": "top",
+    "position": "top",
+    "reload_style_on_change": true,
+    "height": 30,
+    "background": "transparent",
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-
-
     "modules-left": [
-	"clock",
-	"sway/scratchpad",
-	"custom/notification"
+        "clock",
+        "sway/scratchpad",
+        "custom/notification",
+        "wlr/taskbar"
     ],
     "modules-center": [
         "hyprland/workspaces",
-	"mpd"
+        "mpd"
     ],
     "modules-right": [
-       "group/expand",
- 	"network",
+        "group/expand",
+        "network",
         "battery",
-	"custom/power"
+        "custom/power"
     ],
- 	"hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-        "active": "󰺕",   // pulsating alien core
-        "default": "󰜎",  // cryptic glyph
-        "empty": "󰊠"    // faint dim runic symbol
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "󰺕", // pulsating alien core
+            "default": "󰜎", // cryptic glyph
+            "empty": "󰊠" // faint dim runic symbol
+        },
+        "persistent-workspaces": {
+            "*": [
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
     },
-    "persistent-workspaces": {
-        "*": [1,2,3,4,5]
-    }
-},
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -61,7 +66,10 @@
     "sway/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
-        "format-icons": ["", ""],
+        "format-icons": [
+            "",
+            ""
+        ],
         "tooltip": true,
         "tooltip-format": "{app}: {title}"
     },
@@ -98,16 +106,16 @@
             "deactivated": ""
         }
     },
-      "custom/notification": {
-            "tooltip": false,
-            "format": "",
-            "on-click": "swaync-client -t -sw",
-            "escape": true
-        },
-      "clock": {
-    	"format": " {:%I:%M %p}",           
-    	"format-alt": "  {:%Y-%m-%d}", 
-   	 "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+    "custom/notification": {
+        "tooltip": false,
+        "format": "",
+        "on-click": "swaync-client -t -sw",
+        "escape": true
+    },
+    "clock": {
+        "format": " {:%I:%M %p}",
+        "format-alt": "  {:%Y-%m-%d}",
+        "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>"
     },
     "cpu": {
         "format": "{usage}% ",
@@ -122,12 +130,26 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
+        "format-icons": [
+            "",
+            "",
+            ""
+        ]
     },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery": {
         "states": {
@@ -142,33 +164,45 @@
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "battery#bat2": {
         "bat": "BAT2"
     },
-
     "group/expand": {
-	"format":"󰍜",
-	"tooltip": false,
-	"orientation": "horizontal",
-	"drawer": {
-	 	"transition-duration": 600,
-		"transition-to-left": true,
-		"click-to-reveal": true
-	},
-	"modules": ["custom/expand", "pulseaudio","memory","cpu","backlight","temperature"],
+        "format": "󰍜",
+        "tooltip": false,
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 600,
+            "transition-to-left": true,
+            "click-to-reveal": true
+        },
+        "modules": [
+            "custom/expand",
+            "pulseaudio",
+            "memory",
+            "cpu",
+            "backlight",
+            "temperature"
+        ],
     },
     "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-      "tooltip": true,
-      "format-icons": {
-        "default": "",
-        "performance": "",
-        "balanced": "",
-        "power-saver": ""
-      }
+        "format": "{icon}",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -177,7 +211,9 @@
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click": "nmgui",
+        "tooltip": true
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -194,18 +230,33 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": [
+                "",
+                "",
+                ""
+            ]
         },
         "on-click": "pavucontrol"
     },
-   "custom/power": {
-   	 "format": "",
- 	 "on-click": "wlogout",
-   	 "tooltip": false
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "all-outputs": true,
+        "active-first": true,
+        "tooltip-format": "{name}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "ignore-list": [
+            "rofi"
+        ]
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "wlogout",
+        "tooltip": false
     },
     "custom/expand": {
-   	 "format": " ",
-    	 "tooltip": false
+        "format": " ",
+        "tooltip": false
     },
     "custom/media": {
         "format": "{icon} {text}",
